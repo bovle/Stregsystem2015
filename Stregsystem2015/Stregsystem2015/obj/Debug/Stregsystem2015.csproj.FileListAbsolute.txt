@@ -1,0 +1,8 @@
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\bin\Debug\Stregsystem2015.exe.config
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\obj\Debug\Stregsystem2015.csprojResolveAssemblyReference.cache
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\bin\Debug\Stregsystem2015.exe
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\bin\Debug\Stregsystem2015.pdb
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\obj\Debug\Stregsystem2015.exe
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\obj\Debug\Stregsystem2015.pdb
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\obj\Debug\Stregsystem2015.Properties.Resources.resources
+C:\Users\frederik\Documents\Visual Studio 2013\Projects\Stregsystem2015\Stregsystem2015\obj\Debug\Stregsystem2015.csproj.GenerateResource.Cache
