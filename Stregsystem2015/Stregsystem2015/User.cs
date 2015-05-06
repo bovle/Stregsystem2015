@@ -110,7 +110,7 @@ namespace Stregsystem2015
 
         public bool Equals(User other)
         {
-            if (other != null && this.UserID.Equals(other.UserID))
+            if (other != null && this.Username.Equals(other.Username))
                 return true;
             else
                 return false;
@@ -123,8 +123,8 @@ namespace Stregsystem2015
 
             User other = obj as User;
 
-            if (other != null && this.UserID.Equals(other.UserID))
-                return true;
+            if (other != null)
+                return this.Equals(other);
             else
                 return false;
         }

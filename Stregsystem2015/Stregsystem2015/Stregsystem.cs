@@ -18,9 +18,9 @@ namespace Stregsystem2015
             InitializeProducts();
         }
 
-        public List<Transaction> TransactionLog { get; set; }
-        public List<User> Users { get; set; }
-        public List<Product> Products { get; set; }
+        private List<Transaction> TransactionLog { get; set; }
+        private List<User> Users { get; set; }
+        private List<Product> Products { get; set; }
 
         public void BuyProduct(User user, Product product)
         {
@@ -44,12 +44,42 @@ namespace Stregsystem2015
         {
             return Products.Find(p => p.ProductID == productID);
         }
+
         public User GetUser(string username)
         {
             return Users.Find(u => u.Username == username);
         }
-        public List<Transaction> GetTransactionList(int numberOfTransactions, User username) { return TransactionLog; }
-        public List<Product> GetActiveProducts() { return Products; }
+
+        public List<Transaction> GetTransactionList(int numberOfTransactions, User user)
+        {
+            List<Transaction> Transactions = new List<Transaction>();
+
+            Transactions = TransactionLog.Where(t => t.TransactionUser == user).
+                OrderByDescending(t => t.TransactionID).Take(numberOfTransactions).ToList();
+
+            return Transactions;
+        }
+
+        public List<Product> GetActiveProducts()
+        {
+            List<Product> activeProducts = new List<Product>();
+
+            foreach (Product product in Products)
+            {
+                if (product.Active)
+                    activeProducts.Add(product);
+            }
+
+            return activeProducts;
+        }
+
+        public void AddUser(User user)
+        {
+            if (!Users.Contains(user))
+                Users.Add(user);
+            else
+                throw new ArgumentException("Username alredy exists");
+        }
 
         void InitializeProducts()
         {
