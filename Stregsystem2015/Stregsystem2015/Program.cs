@@ -11,35 +11,22 @@ namespace Stregsystem2015
         static void Main(string[] args)
         {
             Stregsystem stregsystem = new Stregsystem();
-            //StregsystemCLI cli = new StregsystemCLI(stregsystem);
-            //StregsystemCommandParser parser = new StregsystemCommandParser(cli, stregsystem);
-            //cli.Start(parser);
-            User Bovle = new User("frederik", "lund", "bovle", "klaver1@hotmail.com");
-            User Goejsen = new User("Maia", "Noegaard", "goejsen", "maia.Norgaard@hotmail.com");
-            stregsystem.AddUser(Bovle);
 
-            stregsystem.AddUser(Goejsen);
+            User bovle = new User("Frederik", "Lund", "bovle", "klaver1@hotmail.com");
+            User goejsen = new User("Maia", "Norgaard", "goejsen", "maianorgaard@hotmail.com");
+            User harder = new User("Jakob", "Harder", "sirharder", "harder@hotmail.com");
 
-            stregsystem.ExecuteTransaction(new InsertCashTransaction(Bovle, DateTime.Now, 300));
-            
-            stregsystem.ExecuteTransaction(new InsertCashTransaction(Goejsen, DateTime.Now, 500));
+            stregsystem.AddUser(bovle);
+            stregsystem.AddUser(goejsen);
+            stregsystem.AddUser(harder);
 
-            stregsystem.ExecuteTransaction(new BuyTransaction(Goejsen, DateTime.Now, stregsystem.GetProduct(11)));
+            stregsystem.ExecuteTransaction(new InsertCashTransaction(bovle, DateTime.Now, 3000));
+            stregsystem.ExecuteTransaction(new InsertCashTransaction(goejsen, DateTime.Now, 2500));
+            stregsystem.ExecuteTransaction(new InsertCashTransaction(harder, DateTime.Now, 1000000000000));
 
-            stregsystem.ExecuteTransaction(new BuyTransaction(Bovle, DateTime.Now, stregsystem.GetProduct(14)));
-
-            List<Transaction> myTransactions = new List<Transaction>();
-
-            myTransactions = stregsystem.GetTransactionList(2, Goejsen);
-
-            List<Product> myActiveProducts = new List<Product>();
-
-            myActiveProducts = stregsystem.GetActiveProducts();
-
-            foreach (Product product in myActiveProducts)
-            {
-                Console.WriteLine(product.Name);
-            }
+            StregsystemCLI cli = new StregsystemCLI(stregsystem);
+            StregsystemCommandParser parser = new StregsystemCommandParser(cli, stregsystem);
+            cli.Start(parser);
 
             Console.ReadKey();
         }

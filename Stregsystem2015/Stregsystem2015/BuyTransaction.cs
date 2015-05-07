@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stregsystem2015
 {
-    class BuyTransaction : Transaction
+    public class BuyTransaction : Transaction
     {
         public BuyTransaction(User user, DateTime date, Product product)
             : base(user, date, product.Price * -1) 
@@ -26,7 +26,7 @@ namespace Stregsystem2015
             if (TransactionUser.Balance + Amount < 0 && !ProductToBuy.CanBeBoughtOnCredit)
                 throw new InsufficientCreditsException(TransactionUser, ProductToBuy);
             else if (!ProductToBuy.Active)
-                throw new ArgumentException("ProductToBuy", "Argument is not active");
+                throw new ArgumentException("Product is not active", "ProductToBuy");
             else
                 base.Execute();
         }

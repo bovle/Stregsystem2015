@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuyTransaction.cs" />
+    <Compile Include="UserNotFoundException.cs" />
+    <Compile Include="ProductNotFoundException.cs" />
     <Compile Include="InsertCashTransaction.cs" />
     <Compile Include="InsufficientCreditsException.cs" />
     <Compile Include="IStregsystemUI.cs" />

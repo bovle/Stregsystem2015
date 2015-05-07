@@ -22,16 +22,18 @@ namespace Stregsystem2015
         private List<User> Users { get; set; }
         private List<Product> Products { get; set; }
 
-        public void BuyProduct(User user, Product product)
+        public BuyTransaction BuyProduct(User user, Product product)
         {
             BuyTransaction BT = new BuyTransaction(user, DateTime.Now, product);
             ExecuteTransaction(BT);
+            return BT;
         }
 
-        public void AddCreditsToAccount(User user, decimal amount)
+        public InsertCashTransaction AddCreditsToAccount(User user, decimal amount)
         {
             InsertCashTransaction ICT = new InsertCashTransaction(user, DateTime.Now, amount);
             ExecuteTransaction(ICT);
+            return ICT;
         }
 
         public void ExecuteTransaction(Transaction transaction)
@@ -42,12 +44,20 @@ namespace Stregsystem2015
 
         public Product GetProduct(int productID)
         {
-            return Products.Find(p => p.ProductID == productID);
+            Product result = Products.Find(p => p.ProductID == productID);
+            if (result != null)
+                return result;
+            else
+                throw new ProductNotFoundException(productID);
         }
 
         public User GetUser(string username)
         {
-            return Users.Find(u => u.Username == username);
+            User result = Users.Find(u => u.Username == username);
+            if (result != null)
+                return result;
+            else
+                throw new UserNotFoundException(username);
         }
 
         public List<Transaction> GetTransactionList(int numberOfTransactions, User user)
@@ -78,7 +88,7 @@ namespace Stregsystem2015
             if (!Users.Contains(user))
                 Users.Add(user);
             else
-                throw new ArgumentException("Username alredy exists");
+                throw new ArgumentException("Username allredy exists");
         }
 
         void InitializeProducts()

@@ -8,15 +8,16 @@ namespace Stregsystem2015
 {
     public interface IStregsystemUI
     {
-        //void DisplayUserNotFound();
-        //void DisplayProductNotFound();
-        //void DisplayUserInfo();
-        //void DisplayTooManyArgumentsError();
-        //void DisplayAdminCommandNotFoundMessage();
-        //void DisplayUserBuysProduct();
-        //void DisplayUserBuysProduct(string user);
-        //void Close();
-        //void DisplayInsufficientCash();
-        //void DisplayGeneralError();
+        void Start(StregsystemCommandParser parser);
+        void Close();
+        void DisplayUserNotFound(string message);
+        void DisplayProductNotFound(string message);
+        void DisplayUserInfo(User user);
+        void DisplayTooManyArgumentsError();
+        void DisplayAdminCommandNotFoundMessage(string command);
+        void DisplayUserBuysProduct(BuyTransaction transaction);
+        void DisplayInsufficientCash(string message);
+        void DisplayGeneralError(string message);
+        void DisplayInterface();
     }
 }

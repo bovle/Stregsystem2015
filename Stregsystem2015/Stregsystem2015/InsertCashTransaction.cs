@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stregsystem2015
 {
-    class InsertCashTransaction : Transaction
+    public class InsertCashTransaction : Transaction
     {
         public InsertCashTransaction(User user, DateTime date, decimal amount)
             : base(user, date, amount) { }
