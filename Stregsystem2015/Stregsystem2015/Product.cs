@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace Stregsystem2015
 {
+    //Product klasse som beskriver de produkter der er i systemet
     public class Product
     {
+        //contructor som giver værdier til næsten alle variabler
         public Product(int productID, string name, decimal price, bool active)
         {
             _ProductID = productID;
             _Name = name;
             Price = price;
             Active = active;
+            //canbeboughtoncredit bliver sat til false i første omgang
             CanBeBoughtOnCredit = false;
         }
 
@@ -23,6 +26,7 @@ namespace Stregsystem2015
             get { return _ProductID; }
             set
             {
+                //productID må ikke være under 1
                 if (value > 0)
                     _ProductID = value;
                 else
@@ -36,6 +40,7 @@ namespace Stregsystem2015
             get { return _Name; }
             set
             {
+                //product name må ikke være null
                 if (value != null)
                     _Name = value;
                 else

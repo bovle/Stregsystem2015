@@ -1,0 +1,5 @@
+goejsen bought the item: Monster	Amount:-12kr	 Date:12-05-2015 16:46:52	 Transaction ID: 5
+bovle bought the item: Øl(Tuborg/Classic/Carlsberg/Rød)	Amount:-6,5kr	 Date:12-05-2015 16:46:42	 Transaction ID: 4
+Deposit by: sirharder	 Amount:1000000000000kr	 Date:12-05-2015 16:46:37	 Transaction ID: 3
+Deposit by: goejsen	 Amount:2500kr	 Date:12-05-2015 16:46:37	 Transaction ID: 2
+Deposit by: bovle	 Amount:60kr	 Date:12-05-2015 16:46:37	 Transaction ID: 1

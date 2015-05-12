@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Stregsystem2015
 {
+    //arver fra product
     class SeasonalProduct : Product
     {
-
-        public SeasonalProduct(int productID, string name, int price, DateTime startDate, DateTime endDate) 
+        //contructor der sender nogle oplysninger videre til product
+        //active bliver sat til false, da den alligevel bliver overridet 
+        public SeasonalProduct(int productID, string name, decimal price, DateTime startDate, DateTime endDate) 
             : base(productID, name, price, false)
         {
             SeasonStartDate = startDate;
@@ -22,12 +24,27 @@ namespace Stregsystem2015
 
         public override bool Active
         {
+            //seasonalproduct er aktivt hvis kaldtidspunktet er imellem startdate og enddate
             get
             {
                 if (DateTime.Now > SeasonStartDate && DateTime.Now < SeasonEndDate)
                     return true;
                 else
                     return false;
+            }
+            //seasonalproduct sættes ved at ændre på start og end date
+            set
+            {
+                if (value)
+                {
+                    SeasonStartDate = DateTime.Now;
+                    SeasonEndDate = DateTime.MaxValue;
+                }
+                else
+                {
+                    SeasonStartDate = DateTime.MinValue;
+                    SeasonEndDate = DateTime.Now;
+                }
             }
         }
     }
